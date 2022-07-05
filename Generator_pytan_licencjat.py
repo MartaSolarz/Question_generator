@@ -20,6 +20,20 @@ class Quest:
             raise ValueError('Blank answer field')
 
 
+def create_question_bank(elements:dict[str,str]) -> list[Quest]:
+    question_bank = []
+    for el in elements:
+        try:
+            quest = Quest(el['PYTANIE'], el['ODP'])
+        except ValueError as v:
+            print(f'ERROR: {v.args[0]}')
+            escape_error()
+        else:
+            question_bank.append(quest)
+    
+    return question_bank            
+
+
 def csv_reader() -> list[Quest]:
     with open(FILENAME, encoding='utf8') as stream:
         elements = csv.DictReader(stream)
@@ -33,20 +47,6 @@ def escape_error() -> None:
     ask = input('-- if you want to interrupt and correct the contents of the file: use back -- ')
     if ask == 'back':
         sys.exit(1)
-
-
-def create_question_bank(elements:dict[str,str]) -> list[Quest]:
-    question_bank = []
-    for el in elements:
-        try:
-            quest = Quest(el['PYTANIE'], el['ODP'])
-        except ValueError as v:
-            print(f'ERROR: {v.args[0]}')
-            escape_error()
-        else:
-            question_bank.append(quest)
-    
-    return question_bank
 
 
 def generate_random_question(questions:list[Quest]) -> Quest:
