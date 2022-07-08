@@ -25,8 +25,8 @@ def create_question_bank(elements:dict[str,str]) -> list[Quest]:
     for el in elements:
         try:
             quest = Quest(el['PYTANIE'], el['ODP'])
-        except ValueError as v:
-            print(f'ERROR: {v.args[0]}')
+        except ValueError as ve:
+            print(f'ERROR: {ve.args[0]}')
             escape_error()
         else:
             question_bank.append(quest)
