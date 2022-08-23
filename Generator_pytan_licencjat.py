@@ -85,7 +85,7 @@ def main():
         print()
         ask = input('-- click enter to generate new question or use exit -- ')
 
-        if ask == 'exit':
+        if ask.lower() == 'exit':
             break
         
         while True:
