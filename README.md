@@ -32,10 +32,10 @@ The database of questions used is based on the issues for the undergraduate exam
 
 ### 4. Python modules used. ###
 
-- csv
-- dataclasses
-- random
-- sys
-- time
+- ```csv```
+- ```dataclasses```
+- ```random```
+- ```sys```
+- ```time```
 
 *Author: Marta Solarz*
